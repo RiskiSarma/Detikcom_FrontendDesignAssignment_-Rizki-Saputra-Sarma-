@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Box</title>
+    <style>
+        #map-container {
+            height: 400px;
+            width: 600px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map-container"></div>
+
+    <script>
+        // Ganti "YOUR_API_KEY" dengan kunci API Google Maps Anda
+        const apiKey = 'YOUR_API_KEY';
+
+        function initMap() {
+            // Koordinat pusat peta
+            const center = { lat: -6.2088, lng: 106.8456 };
+
+            // Buat objek peta
+            const map = new google.maps.Map(document.getElementById('map-container'), {
+                center: center,
+                zoom: 12 // Sesuaikan level zoom sesuai kebutuhan
+            });
+
+            // Tambahkan marker di pusat peta
+            new google.maps.Marker({
+                position: center,
+                map: map,
+                title: 'Lokasi Saya'
+            });
+        }
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap"></script>
+</body>
+</html>
